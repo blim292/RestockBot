@@ -6,16 +6,15 @@ import Websites.bestbuy as bb
 import winsound
 import time
 from datetime import datetime
-from selenium import webdriver
-PATH = "C:\Program Files (x86)\chromedriver.exe"
+import webbrowser as wb
+# PATH = "C:\Program Files (x86)\chromedriver.exe"
 
 def main():
     newegg = ne.Newegg()
     bestbuy = bb.BestBuy()
-    driver = webdriver.Chrome(PATH)
 
     while True:
-        time.sleep(3)
+        time.sleep(1)
         now = datetime.now()
         dt_string = now.strftime("%m/%d/%Y %H:%M:%S")
         newegg_results = newegg.parsePage()
@@ -25,8 +24,8 @@ def main():
             duration = 500  # Set Duration To 1000 ms == 1 second
             winsound.Beep(frequency, duration)
             for title, url, addToCartURL in newegg_results:
-                driver.get(addToCartURL)
 
+                wb.open_new(addToCartURL)
                 # print timestamp
                 print("Timestamp: " + dt_string)
                 print("Title: " + title)
@@ -34,6 +33,7 @@ def main():
                 print("Add to cart: " + addToCartURL)
                 print()
                 break
+            break
         # else:
         #     print(f'{dt_string}: Nothing in stock from Newegg')
 

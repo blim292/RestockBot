@@ -16,9 +16,12 @@ class Newegg(object):
             if "Add to cart " in str(link):
                 title = link.find('img')['title']
                 url = link.a['href']
+                strURL = str(url)
                 # starting index to extra productID site specific
-                startIndex = str(url).index('/p/') + 3
-                productID = str(url)[startIndex:]
+                startIndex = strURL.index('/p/') + 3
+                productID = strURL[startIndex:]
+                endIndex = productID.index('?')
+                productID = productID[:endIndex]
                 cart = "https://secure.newegg.com/Shopping/AddtoCart.aspx?Submit=ADD&ItemList=" + productID
                 # save as a tuple pair for unpacking when results found.
                 urls.append((title, url, cart))

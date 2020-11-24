@@ -8,6 +8,7 @@ Simple web scraper that scrapes NewEgg for 3070 restocks.
 * Use selenium to automate process
 
 ### Todo:
-* prototype of web scraper for BestBuy
-* implement bestbuy API to check availability of items
+~~* prototype of web scraper for BestBuy~~
+
+~~* implement bestbuy API to check availability of items~~
 

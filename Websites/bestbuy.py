@@ -1,3 +1,5 @@
+# on hold, cannot scrape page without using API, which requires a corporate email to sign up for...
+
 from bs4 import BeautifulSoup
 import requests
 
